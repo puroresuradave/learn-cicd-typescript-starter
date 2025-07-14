@@ -40,6 +40,9 @@ jobs:
       - name: Build and push Docker image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/third-ridge-465818-h4/notely-ar-repo/notely:latest .
 
+      - name: Debug DATABASE_URL
+        run: echo "Database URL is: ${{ env.DATABASE_URL }}
+
       - name: Run migrations
         run: npm run db:migrate
 
